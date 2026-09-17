@@ -10,9 +10,7 @@ This is a research-style instrument, not a product dashboard.
 
 A full pass through the operator console: live tiles, commands, sensors, safety stop, and conveyor configuration.
 
-[![Operator console walkthrough](https://drive.google.com/thumbnail?id=13rMH3wDOZ5m6KcJBCuB6awIvuRzt1v8d&sz=w1280)](https://drive.google.com/file/d/13rMH3wDOZ5m6KcJBCuB6awIvuRzt1v8d/view?usp=sharing)
-
-[Watch the walkthrough](https://drive.google.com/file/d/13rMH3wDOZ5m6KcJBCuB6awIvuRzt1v8d/view?usp=sharing)
+<video src="https://github.com/yatharthMogra/Modular-Operator-Robotics-Dashboard/raw/main/docs/walkthrough.mp4" controls playsinline width="100%"></video>
 
 ## The problem
 
