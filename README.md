@@ -10,7 +10,7 @@ This is a research-style instrument, not a product dashboard.
 
 A full pass through the operator console: live tiles, commands, sensors, safety stop, and conveyor configuration.
 
-<video src="https://github.com/yatharthMogra/Modular-Operator-Robotics-Dashboard/raw/main/docs/walkthrough.mp4" controls playsinline width="100%"></video>
+![Operator console walkthrough](https://github.com/yatharthMogra/Modular-Operator-Robotics-Dashboard/releases/download/walkthrough/walkthrough.mp4)
 
 ## The problem
 
@@ -117,11 +117,6 @@ Tests cover the motion FSM, the conveyor planner, and command → simulator → 
 3. **CCW 90** so the chevron faces the top obstacle, then **N**. Watch LiDAR and front proximity. Expect **WARNING**, then emergency **STOP**.
 4. **RESET**, then **GENERATE CONFIGURATION** with start `(2, 4)` and end `(9, 4)` (defaults). Tiles form a line.
 5. Stop the backend. Header goes `RECONNECTING` → `OFFLINE`; last update freezes. Start uvicorn again; live ticks resume.
-
-A timed walkthrough: [docs/demo-script.md](docs/demo-script.md).
-Why the UI looks like a lab console: [docs/design.md](docs/design.md), [docs/wireframe.svg](docs/wireframe.svg).
-
-World frame: origin top-left, +x right, +y down (SVG-aligned). Heading 0 faces +x.
 
 ## Layout
 
