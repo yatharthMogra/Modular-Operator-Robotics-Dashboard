@@ -1,0 +1,343 @@
+:root {
+  --bg: #0e0f10;
+  --panel: #121314;
+  --line: #2a2c2e;
+  --text: #c8c4b8;
+  --muted: #6a6860;
+  --ok: #3d7a4a;
+  --ok-text: #8fbf96;
+  --warn: #c4a035;
+  --err: #b54a3a;
+  --grid: #1e2022;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-monospace, "IBM Plex Mono", "SF Mono", Menlo, monospace;
+  font-size: 12px;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  color: var(--text);
+  background: #1a1c1a;
+  border: 1px solid var(--line);
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  border-color: #5a5c58;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+button.on {
+  border-color: var(--ok);
+  color: var(--ok-text);
+}
+
+button.danger {
+  border-color: #5a3030;
+}
+
+button.wide {
+  width: 100%;
+  margin-top: 6px;
+  border-color: var(--ok);
+  color: var(--ok-text);
+}
+
+.console {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) 140px;
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.hdr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+
+.title {
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 2px;
+  white-space: nowrap;
+}
+
+.hdr-meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.pill.ok {
+  color: var(--ok-text);
+}
+.pill.ok .dot {
+  background: var(--ok);
+}
+.pill.warn {
+  color: var(--warn);
+}
+.pill.warn .dot {
+  background: var(--warn);
+}
+.pill.err {
+  color: var(--err);
+}
+.pill.err .dot {
+  background: var(--err);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: #141516;
+  border-right: 1px solid var(--line);
+  cursor: crosshair;
+}
+
+.map.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  min-height: 240px;
+}
+
+.map-bg {
+  fill: #141516;
+}
+
+.grid line {
+  stroke: var(--grid);
+  stroke-width: 0.015;
+}
+
+.obstacle {
+  fill: #1a1a1a;
+  stroke: #3a3a3a;
+  stroke-width: 0.03;
+}
+
+.cell-start {
+  fill: rgba(61, 122, 74, 0.25);
+  stroke: var(--ok);
+  stroke-width: 0.03;
+}
+
+.cell-end {
+  fill: rgba(196, 160, 53, 0.2);
+  stroke: var(--warn);
+  stroke-width: 0.03;
+}
+
+.tile {
+  fill: #2a2d2c;
+  stroke-width: 0.04;
+}
+
+.tile.selected {
+  fill: #1e2a20;
+}
+
+.chevron {
+  fill: var(--text);
+  stroke: none;
+}
+
+.tile-id {
+  fill: var(--text);
+  font-size: 0.28px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.lidar-ray {
+  stroke: #5a7a62;
+  stroke-width: 0.015;
+  opacity: 0.45;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+  border-left: 1px solid var(--line);
+}
+
+.panel {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-label {
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.panel-label.tight {
+  margin: 10px 0 4px;
+}
+
+.state {
+  margin-bottom: 8px;
+}
+
+.state.idle {
+  color: var(--text);
+}
+.state.moving,
+.state.rotating {
+  color: var(--ok-text);
+}
+.state.warning {
+  color: var(--warn);
+}
+.state.stop,
+.state.offline {
+  color: var(--err);
+}
+
+.kv {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 3px 8px;
+  margin: 0;
+}
+
+.kv dt {
+  color: var(--muted);
+}
+
+.kv dd {
+  margin: 0;
+}
+
+.prox,
+.hint,
+.kv-inline,
+.muted {
+  color: var(--muted);
+}
+
+.hint {
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.lidar {
+  width: 100%;
+  height: 140px;
+}
+
+.lidar .ring {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.lidar .lidar-ray {
+  stroke-width: 1;
+}
+
+.lidar .chevron {
+  fill: var(--text);
+}
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.pad-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.log {
+  height: 140px;
+  border-top: 1px solid var(--line);
+  padding: 8px 12px;
+  overflow: auto;
+  background: var(--panel);
+  flex-shrink: 0;
+}
+
+.log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.log li {
+  padding: 1px 0;
+}
+
+.log .ts {
+  color: var(--muted);
+  margin-right: 10px;
+}
+
+.log .warn {
+  color: var(--warn);
+}
+.log .error {
+  color: var(--err);
+}
